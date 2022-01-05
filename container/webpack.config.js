@@ -27,11 +27,9 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'header',
+      name: 'container',
       remotes: {
         header: 'header@[headerUrl]/remoteEntry.js',
-      },
-      remotes: {
         footer: 'footer@[footerUrl]/remoteEntry.js',
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
