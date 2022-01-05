@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
-const RemoteApp = React.lazy(() => import('app2/App'));
-const RemoteApp2 = React.lazy(() => import('app3/App'));
+const HeaderApp = React.lazy(() => import('header/App'));
+const FooterApp = React.lazy(() => import('footer/App'));
 
 const App = () => {
   return (
@@ -13,11 +13,12 @@ const App = () => {
           backgroundColor: 'greenyellow',
         }}
       >
-        <h1>App1</h1>
+        <h1>container</h1>
       </div>
       <Suspense fallback={'loading...'}>
-        <RemoteApp />
-        <RemoteApp2 />
+        <HeaderApp />
+        <div>container</div>
+        <FooterApp />
       </Suspense>
     </div>
   );
