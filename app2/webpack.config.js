@@ -8,7 +8,7 @@ module.exports = {
   mode: 'development',
   devServer: {
     static: path.join(__dirname, 'dist'),
-    port: 3001,
+    port: 3005,
   },
   output: {
     publicPath: 'auto',
@@ -27,12 +27,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'container',
-      remotes: {
-        app1: 'app1@[app1Url]/remoteEntry.js',
-        app2: 'app2@[app2Url]/remoteEntry.js',
-        header: 'header@[headerUrl]/remoteEntry.js',
-        footer: 'footer@[footerUrl]/remoteEntry.js',
+      name: 'app2',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './App': './src/App',
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true }, 'react-query': { singleton: true } },
     }),

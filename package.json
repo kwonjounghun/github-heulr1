@@ -5,7 +5,9 @@
     "packages": [
       "container",
       "footer",
-      "header"
+      "header",
+      "app1",
+      "app2"
     ]
   },
   "scripts": {
